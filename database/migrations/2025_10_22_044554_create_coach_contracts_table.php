@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('sports_coach_id')->constrained();
             $table->foreignId('sports_field_id')->constrained();
+            $table->integer('contract_type')->default(0);
+            $table->integer('contract_value');
+
             $table->date('start_date');
             $table->date('end_date');
             $table->timestamps();

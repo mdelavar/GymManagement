@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('equipment', function (Blueprint $table) {
+        Schema::create('sport_student_entrances', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('type')->default(0);
-            $table->integer('inventory')->default(0);
+            $table->foreignId('sports_field_id')->constrained();
+            $table->foreignId('sport_field_roll_call_id')->constrained();
+            $table->foreignId('sports_student_id')->constrained();
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('equipment');
+        Schema::dropIfExists('sport_student_entrances');
     }
 };

@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('coach_payments', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('sports_coach_id')->constrained();
+            $table->foreignId('coach_contract_id')->constrained();
+            $table->bigInteger('amount');
+            $table->integer('status')->default(0);
+            $table->date('start_date');
+            $table->date('end_date');
             $table->timestamps();
         });
     }
